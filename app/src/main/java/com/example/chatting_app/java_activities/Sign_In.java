@@ -28,7 +28,7 @@ public class Sign_In extends AppCompatActivity {
     }
 
     public void open_App(View view) {
-        
+
     }
 
 
