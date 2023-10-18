@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Chatting_App</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="please_sign_in">Please Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="sign_up">Sign Up!</string>
+    <string name="welcome">Welcome!</string>
+    <string name="please_sign_up">Please Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="have_an_account_sign_in">Have An Account? Sign In</string>
+    <string name="sign_in">Sign In</string>
 </resources>
