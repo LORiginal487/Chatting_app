@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.chatting_app.R;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.ktx.Firebase;
+
+import java.util.HashMap;
 
 public class Sign_In extends AppCompatActivity {
 
@@ -23,5 +28,8 @@ public class Sign_In extends AppCompatActivity {
     }
 
     public void open_App(View view) {
+        
     }
+
+
 }

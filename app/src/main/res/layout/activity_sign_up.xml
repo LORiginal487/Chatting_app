@@ -36,11 +36,33 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/image_In"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                app:riv_oval="true"
+                android:background="@drawable/image_circle_bckgr"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/c4"
+                android:text="@string/add_photo"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
         <EditText
             android:id="@+id/name_in"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
             android:background="@drawable/text_backgr"
             android:ems="10"
             android:gravity="center_horizontal|center_vertical"
@@ -48,16 +70,14 @@
             android:inputType="text"
             android:textColor="@color/c4"
             android:textSize="20sp"
-            tools:textColorHint="@color/c4"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"/>
+            tools:textColorHint="@color/c4" />
 
         <EditText
             android:id="@+id/surname_in"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/text_backgr"
             android:ems="10"
@@ -73,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/text_backgr"
             android:ems="10"
@@ -89,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/text_backgr"
             android:ems="10"
@@ -105,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/text_backgr"
             android:ems="10"
@@ -121,7 +141,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/text_backgr"
             android:ems="10"
@@ -136,7 +156,7 @@
             android:id="@+id/buttonSignUp"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_margin="25dp"
+            android:layout_margin="15dp"
             android:background="@drawable/buttom_shape"
             android:gravity="center_horizontal|center_vertical"
             android:onClick="open_App"
