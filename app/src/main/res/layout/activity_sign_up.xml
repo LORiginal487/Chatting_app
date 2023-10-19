@@ -37,8 +37,11 @@
         android:orientation="vertical">
 
         <FrameLayout
+            android:id="@+id/layoutImageIn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="addingImage">
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/image_In"
@@ -49,6 +52,7 @@
                 app:riv_oval="true"
                 android:background="@drawable/image_circle_bckgr"/>
             <TextView
+                android:id="@+id/addImageTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/c4"
@@ -152,17 +156,29 @@
             android:textSize="20sp"
             tools:textColorHint="@color/c4" />
 
-        <Button
-            android:id="@+id/buttonSignUp"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
-            android:background="@drawable/buttom_shape"
-            android:gravity="center_horizontal|center_vertical"
-            android:onClick="open_App"
-            android:text="@string/sign_up"
-            android:textColor="@color/c1"
-            android:textSize="25sp" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <Button
+                android:id="@+id/buttonSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/buttom_shape"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="open_App"
+                android:text="@string/sign_up"
+                android:textColor="@color/c1"
+                android:textSize="25sp" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="invisible"/>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/signInBck"
