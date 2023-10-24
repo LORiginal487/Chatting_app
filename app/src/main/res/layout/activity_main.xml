@@ -31,6 +31,8 @@
         android:padding="6dp"
         android:src="@drawable/round_logout_24"
         android:tint="@color/white"
+        android:clickable="true"
+        android:onClick="sign_Out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
