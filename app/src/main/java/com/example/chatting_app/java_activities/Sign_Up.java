@@ -64,9 +64,6 @@ public class Sign_Up extends AppCompatActivity {
             signUpMeth();
         }
     }
-    private void showToast(String mssg){
-        Toast.makeText(this, mssg, Toast.LENGTH_SHORT).show();
-    }
     private boolean checkInputs(){
         if(image == null){
             showToast("Please add image");
@@ -215,4 +212,8 @@ public class Sign_Up extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         pickImage.launch(intent);
     }
+    private void showToast(String mssg){
+        Toast.makeText(this, mssg, Toast.LENGTH_SHORT).show();
+    }
+
 }
