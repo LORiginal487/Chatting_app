@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         managePreferences.getString(Constants.Key_Users_Id)
                 );
         documentReference.update(Constants.Key_FCM_Token, tkn)
-                .addOnSuccessListener(unused -> showToast("Token updated!!!"))
+                //.addOnSuccessListener(unused -> showToast("Token updated!!!"))
                 .addOnFailureListener(e -> showToast("unable to update token"));
     }
     public void sign_Out(View view) {
@@ -90,4 +90,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void Open_UserActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), usersActivity.class);
+        startActivity(intent);
+    }
 }
