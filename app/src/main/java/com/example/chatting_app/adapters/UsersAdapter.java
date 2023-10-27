@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chatting_app.Listeners.UserListener;
 import com.example.chatting_app.R;
 import com.example.chatting_app.models.User;
 import com.example.chatting_app.utilities.Constants;
@@ -20,8 +21,10 @@ import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
     private final List<User> users;
+    private  final UserListener userL;
 
-    public UsersAdapter(List<User> users) {
+    public UsersAdapter(List<User> users,UserListener userL) {
+        this.userL = userL;
         this.users = users;
     }
 
@@ -63,6 +66,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
             email.setText(user.email);
             RoundedImageView imageProfile = itemView.findViewById(R.id.imageV1);
             imageProfile.setImageBitmap(getUserImage(user.image));
+            itemView.setOnClickListener(v -> userL.onUserClick(user));
         }
     }
 }

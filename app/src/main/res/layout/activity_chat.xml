@@ -7,7 +7,7 @@
 
     android:animateLayoutChanges="true"
     android:background="@color/c1"
-    tools:context=".ChatActivity">
+    tools:context=".java_activities.ChatActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +42,7 @@
             app:layout_constraintWidth_percent="0.15" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/nameOfTouser"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"

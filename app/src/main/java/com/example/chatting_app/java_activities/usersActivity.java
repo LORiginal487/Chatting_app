@@ -5,25 +5,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.chatting_app.Listeners.UserListener;
 import com.example.chatting_app.R;
 import com.example.chatting_app.adapters.UsersAdapter;
 import com.example.chatting_app.models.User;
 import com.example.chatting_app.utilities.Constants;
 import com.example.chatting_app.utilities.ManagePreferences;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class usersActivity extends AppCompatActivity {
+public class usersActivity extends AppCompatActivity implements UserListener {
     TextView error;
     private ManagePreferences managePreferences;
     RecyclerView recyclerView;
@@ -67,7 +65,7 @@ public class usersActivity extends AppCompatActivity {
                             users.add(user);
                         }
                         if(users.size()>0){
-                            UsersAdapter usersAdapter = new UsersAdapter(users);
+                            UsersAdapter usersAdapter = new UsersAdapter(users, this);
                             recyclerView.setAdapter(usersAdapter);
                             recyclerView.setVisibility(View.VISIBLE);
                         }else{
@@ -99,5 +97,13 @@ public class usersActivity extends AppCompatActivity {
         loadingProgressBar = findViewById(R.id.progressBar3);
         error = findViewById(R.id.txtError);
         recyclerView = findViewById(R.id.recycleV1);
+    }
+
+    @Override
+    public void onUserClick(User user) {
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(Constants.Key_User, user);
+        startActivity(intent);
+        finish();
     }
 }

@@ -11,6 +11,7 @@ public class Constants {
     public static final String Key_Users_Id = "userID";
     public static final String Key_Image = "image";
     public static final String Key_FCM_Token = "fcmToken";
+    public static final String Key_User = "user";
 
 
 
