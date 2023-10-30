@@ -12,6 +12,12 @@ public class Constants {
     public static final String Key_Image = "image";
     public static final String Key_FCM_Token = "fcmToken";
     public static final String Key_User = "user";
+    public static final String Key_Collection_Chat = "chat";
+    public static final String Key_Sender_ID = "sendrID";
+    public static final String Key_Timestamp = "timestamp";
+    public static final String Key_Message = "message";
+    public static final String Key_Receiver_ID = "ReceiverID";
+
 
 
 

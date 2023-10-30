@@ -97,12 +97,13 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:overScrollMode="never"
+            app:stackFromEnd="true"
             android:padding="3dp"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progressBar4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>

@@ -26,6 +26,7 @@ public class usersActivity extends AppCompatActivity implements UserListener {
     private ManagePreferences managePreferences;
     RecyclerView recyclerView;
     ProgressBar loadingProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,8 @@ public class usersActivity extends AppCompatActivity implements UserListener {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
-    public void getUsers(){
+
+    public void getUsers() {
         loading(true);
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         database.collection(Constants.Key_Collection_Users)
@@ -51,10 +53,10 @@ public class usersActivity extends AppCompatActivity implements UserListener {
                 .addOnCompleteListener(task -> {
                     loading(false);
                     String current_USERiD = managePreferences.getString(Constants.Key_Users_Id);
-                    if(task.isSuccessful() && task.getResult()!=null){
+                    if (task.isSuccessful() && task.getResult() != null) {
                         List<User> users = new ArrayList<>();
-                        for(QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()){
-                            if(current_USERiD.equals(queryDocumentSnapshot.getId())){
+                        for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
+                            if (current_USERiD.equals(queryDocumentSnapshot.getId())) {
                                 continue;
                             }
                             User user = new User();
@@ -62,38 +64,42 @@ public class usersActivity extends AppCompatActivity implements UserListener {
                             user.email = queryDocumentSnapshot.getString(Constants.Key_Email);
                             user.image = queryDocumentSnapshot.getString(Constants.Key_Image);
                             user.token = queryDocumentSnapshot.getString(Constants.Key_FCM_Token);
+                            user.id = queryDocumentSnapshot.getId();
                             users.add(user);
                         }
-                        if(users.size()>0){
+                        if (users.size() > 0) {
                             UsersAdapter usersAdapter = new UsersAdapter(users, this);
                             recyclerView.setAdapter(usersAdapter);
                             recyclerView.setVisibility(View.VISIBLE);
-                        }else{
+                        } else {
                             showErrorTxt();
                         }
-                    }else{
+                    } else {
                         showErrorTxt();
                     }
                 });
     }
-    public void showErrorTxt(){
-        error.setText(String.format("%s","No User Found"));
+
+    public void showErrorTxt() {
+        error.setText(String.format("%s", "No User Found"));
         error.setVisibility(View.VISIBLE);
     }
-    private void loading(boolean isLoading){
+
+    private void loading(boolean isLoading) {
         //Log.d("l3 1111111", "_______________");
-        if(isLoading){
+        if (isLoading) {
 
             loadingProgressBar.setVisibility(View.VISIBLE);
             //Log.d("l4 1111111", "_______________");
-        }else{
+        } else {
 
             loadingProgressBar.setVisibility(View.INVISIBLE);
             //Log.d("l5 1111111", "_______________");
         }
 
     }
-    private void callViews(){
+
+    private void callViews() {
         loadingProgressBar = findViewById(R.id.progressBar3);
         error = findViewById(R.id.txtError);
         recyclerView = findViewById(R.id.recycleV1);

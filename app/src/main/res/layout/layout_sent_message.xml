@@ -3,16 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
 
     <TextView
         android:id="@+id/outgoing"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bubbleout"
-        android:padding="3dp"
+        android:layout_marginEnd="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:textColor="@color/white"
         android:textSize="15sp"
+        app:layout_constraintWidth_max="wrap"
         app:layout_constraintWidth_percent="0.8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:textColor="@color/c4"
-        android:textSize="10sp"
+        android:textSize="11sp"
         app:layout_constraintTop_toBottomOf="@+id/outgoing"
         app:layout_constraintEnd_toEndOf="parent"/>
 

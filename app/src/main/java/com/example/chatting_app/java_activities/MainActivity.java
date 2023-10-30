@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     String userName, userSurname;
     RoundedImageView rImg;
     TextView namesShow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,18 +42,21 @@ public class MainActivity extends AppCompatActivity {
         getToken();
         //________________-*
     }
-    private void loadUsersDetails(){
+
+    private void loadUsersDetails() {
         Log.d("ma3.a2 333333", "_______________");
         namesShow.setText(managePreferences.getString(Constants.Key_Name));
         byte[] bytes = Base64.decode(managePreferences.getString(Constants.Key_Image), Base64.DEFAULT);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0 , bytes.length);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         rImg.setImageBitmap(bitmap);
 
     }
-    private void getToken(){
+
+    private void getToken() {
         FirebaseMessaging.getInstance().getToken().addOnSuccessListener(this::upDateToken);
     }
-    private void upDateToken(String tkn){
+
+    private void upDateToken(String tkn) {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         DocumentReference documentReference =
                 database.collection(Constants.Key_Collection_Users).document(
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 //.addOnSuccessListener(unused -> showToast("Token updated!!!"))
                 .addOnFailureListener(e -> showToast("unable to update token"));
     }
+
     public void sign_Out(View view) {
         showToast("Signing out...");
         FirebaseFirestore database = FirebaseFirestore.getInstance();
@@ -85,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
         rImg = findViewById(R.id.imgProfile);
         namesShow = findViewById(R.id.nameTXT);
     }
-    private void showToast(String mssg){
+
+    private void showToast(String mssg) {
         Toast.makeText(this, mssg, Toast.LENGTH_SHORT).show();
     }
 

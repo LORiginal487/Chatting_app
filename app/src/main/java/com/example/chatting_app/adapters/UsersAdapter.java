@@ -21,9 +21,9 @@ import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
     private final List<User> users;
-    private  final UserListener userL;
+    private final UserListener userL;
 
-    public UsersAdapter(List<User> users,UserListener userL) {
+    public UsersAdapter(List<User> users, UserListener userL) {
         this.userL = userL;
         this.users = users;
     }
@@ -49,17 +49,20 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         return users.size(); // Change this to the actual item count
     }
 
-    private Bitmap getUserImage(String encodedImg){
+    private Bitmap getUserImage(String encodedImg) {
         byte[] bytes = Base64.decode(encodedImg, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(bytes, 0 , bytes.length);
+        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
+
     class UserViewHolder extends RecyclerView.ViewHolder {
         View itemView;
+
         public UserViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
         }
-        void setUserData(User user){
+
+        void setUserData(User user) {
             TextView name = itemView.findViewById(R.id.textName);
             name.setText(user.name);
             TextView email = itemView.findViewById(R.id.textEmail);
