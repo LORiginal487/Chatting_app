@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final List<ChatMessage> chatMessages;
-    private static Bitmap receiverPP;
+    private final Bitmap receiverPP;
     String senderID;
 
     public static final int view_TYPE_SENT = 1;
@@ -27,7 +27,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public ChatAdapter(List<ChatMessage> chatMessages, Bitmap receiverPP, String senderID) {
         this.chatMessages = chatMessages;
-        ChatAdapter.receiverPP = receiverPP;
+        this.receiverPP = receiverPP;
         this.senderID = senderID;
     }
 
@@ -100,7 +100,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             TextView dateTime = itemView.findViewById(R.id.recTimeTxt);
             dateTime.setText(chatMessage.dateTime);
             RoundedImageView imageProfile = itemView.findViewById(R.id.senderimgProfile);
-            imageProfile.setImageBitmap(ChatAdapter.receiverPP);
+            imageProfile.setImageBitmap(receiverPP);
 
 
         }

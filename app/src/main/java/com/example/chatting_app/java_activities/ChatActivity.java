@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -46,6 +47,7 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        Log.d("ok", "33333333333");
         callViews();
         loadUser();
         callClasses();
@@ -101,11 +103,15 @@ public class ChatActivity extends AppCompatActivity {
             if(count == 0){
                 chatAdapter.notifyDataSetChanged();
             }else{
+                System.out.println("ok we in 2");
+                Log.d("ok", "1111111111111");
                 chatAdapter.notifyItemRangeInserted(chatMessages.size(),chatMessages.size());
                 recyclerView.smoothScrollToPosition(chatMessages.size()-1);
             }
             recyclerView.setVisibility(View.VISIBLE);
         }
+        System.out.println("ok we in 1");
+        Log.d("ok", "22222222222222222");
         progressBar4.setVisibility(View.GONE);
 
     };
